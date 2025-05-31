@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.shymike.upgradedchat.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ChatScreenMixin"
+  ],
+  "client": [
+    "ChatHudAccessor",
+    "ChatHudMixin",
+    "ChatScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
