@@ -4,7 +4,7 @@ A minecraft mod with many chat related QOL features
 
 ## Features
 - Customizable anti chat spam
-- Reopen last sent chat message keybind
+- Reopen last sent chat message keybind (up arrow, changeable)
 - Custom chat history length
 - Custom max chat characters
 - Prevent chat clear on same server rejoin
