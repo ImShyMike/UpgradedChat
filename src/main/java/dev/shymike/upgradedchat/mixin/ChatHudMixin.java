@@ -16,7 +16,6 @@ import dev.shymike.upgradedchat.client.config.Config.Entries;
 
 import static dev.shymike.upgradedchat.client.UpgradedChatClient.LAST_SERVER;
 import static dev.shymike.upgradedchat.client.UpgradedChatClient.MC;
-import static dev.shymike.upgradedchat.UpgradedChat.LOGGER;
 import static dev.shymike.upgradedchat.client.features.AntiSpam.messageCounts;
 
 @Mixin(ChatHud.class)

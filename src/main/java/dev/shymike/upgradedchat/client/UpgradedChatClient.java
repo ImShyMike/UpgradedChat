@@ -3,13 +3,11 @@ package dev.shymike.upgradedchat.client;
 import dev.shymike.upgradedchat.client.config.Config;
 import dev.shymike.upgradedchat.client.features.ChatCommands;
 import dev.shymike.upgradedchat.client.features.Keybinds;
-import dev.shymike.upgradedchat.client.features.ReopenLastMessage;
 import dev.shymike.upgradedchat.client.features.TickScheduler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.hud.ChatHud;
 
 import static dev.shymike.upgradedchat.UpgradedChat.LOGGER;
 import static dev.shymike.upgradedchat.UpgradedChat.MOD_NAME;
