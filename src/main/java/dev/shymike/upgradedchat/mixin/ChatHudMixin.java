@@ -16,6 +16,7 @@ import dev.shymike.upgradedchat.client.config.Config.Entries;
 
 import static dev.shymike.upgradedchat.client.UpgradedChatClient.LAST_SERVER;
 import static dev.shymike.upgradedchat.client.UpgradedChatClient.MC;
+import static dev.shymike.upgradedchat.UpgradedChat.LOGGER;
 import static dev.shymike.upgradedchat.client.features.AntiSpam.messageCounts;
 
 @Mixin(ChatHud.class)
@@ -33,19 +34,18 @@ public abstract class ChatHudMixin {
     }
 
     @Inject(method = "clear", at = @At("HEAD"), cancellable = true)
-    private void preventChatClearOnRejoinSameServer(boolean reset, CallbackInfo ci) {
-        if (!reset) { // this makes F3 + D work
-            return;
-        }
+    private void preventChatClearOnRejoinSameServer(boolean clearHistory, CallbackInfo ci) {
+        if (!clearHistory) return;
 
         ClientPlayNetworkHandler handler = MC.getNetworkHandler();
         if (handler == null) return;
+
         ClientConnection connection = handler.getConnection();
-        String currentServer = connection.getAddress().toString();
+        String currentServer = MC.isInSingleplayer() ? "local" : connection.getAddress().toString();
+
         if (LAST_SERVER != null && LAST_SERVER.equals(currentServer)) {
-            ci.cancel();
+            ci.cancel(); // prevent chat clear
         }
-        LAST_SERVER = currentServer;
     }
 
     @Inject(
