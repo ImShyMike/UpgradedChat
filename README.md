@@ -11,11 +11,11 @@ A minecraft mod with many chat related QOL features
 
 ### Anti Spam
 
-![Anti Spam Image](https://github.com/ImShyMike/UpgradedChat/blob/main/assets/antispam.png)
+![Anti Spam Image](https://raw.githubusercontent.com/ImShyMike/UpgradedChat/refs/heads/main/assets/antispam.png)
 
 ### Configuration
 
-![Configuration Image](https://github.com/ImShyMike/UpgradedChat/blob/main/assets/configuration.png)
+![Configuration Image](https://raw.githubusercontent.com/ImShyMike/UpgradedChat/refs/heads/main/assets/configuration.png)
 
 ## Issues
 
