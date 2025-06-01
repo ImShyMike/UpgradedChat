@@ -22,12 +22,14 @@ public class UpgradedChatClient implements ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (Keybinds.reopenLastMessageKey.wasPressed()) {
-                ReopenLastMessage.exec();
+                ReopenLastMessage.open();
             }
         });
 
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
-            LAST_SERVER = handler.getConnection().getAddress().toString();
+            if (LAST_SERVER == null) {
+                LAST_SERVER = handler.getConnection().getAddress().toString();
+            }
         });
     }
 }
