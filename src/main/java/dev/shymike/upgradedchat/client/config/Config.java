@@ -23,7 +23,7 @@ public class Config {
         public static final Entry<Integer> ANTI_SPAM_TICKS = new Entry<>("anti_spam_ticks", 200);
         public static final Entry<Integer> ANTI_SPAM_RANGE = new Entry<>("anti_spam_range", 10);
         public static final Entry<Integer> CHAT_HISTORY_LIMIT = new Entry<>("chat_history_limit", 16_384);
-        public static final Entry<Integer> CHAT_MAX_CHARACTERS = new Entry<>("chat_max_characters", 32_768);
+        public static final Entry<Integer> CHAT_MAX_CHARACTERS = new Entry<>("chat_max_characters", 256);
     }
 
     private static final Gson GSON = new GsonBuilder()
