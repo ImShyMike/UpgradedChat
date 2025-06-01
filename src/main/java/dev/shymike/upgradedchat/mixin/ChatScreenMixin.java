@@ -4,6 +4,7 @@ import net.minecraft.client.gui.screen.ChatScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import dev.shymike.upgradedchat.client.config.Config.Entries;
 
 @Mixin(ChatScreen.class)
 public class ChatScreenMixin {
@@ -16,6 +17,6 @@ public class ChatScreenMixin {
             index = 0
     )
     private int modifyChatInputLength(int original) {
-        return 32768;
+        return Entries.CHAT_MAX_CHARACTERS.value();
     }
 }

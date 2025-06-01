@@ -9,6 +9,7 @@ import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
+import dev.shymike.upgradedchat.client.config.Config.Entries;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -19,8 +20,6 @@ import static dev.shymike.upgradedchat.client.UpgradedChatClient.MC;
 
 public class AntiSpam {
     public static final Map<Text, Integer> messageCounts = new LinkedHashMap<>();
-    private static final int MAX_TRACKED_MESSAGES = 10;
-    private static final int MAX_TRACKED_TICKS = 10 * 20; // 10 seconds
 
     public static boolean handleRepeatedMessage(Text repeatedText) {
         int currentCount = messageCounts.get(repeatedText);
@@ -73,7 +72,7 @@ public class AntiSpam {
         for (int i = messages.size() - 1; i >= 0; i--) {
             ChatHudLine candidate = messages.get(i);
             if (candidate.content().equals(message)
-                    && candidate.creationTick() + MAX_TRACKED_TICKS > MC.inGameHud.getTicks()
+                    && candidate.creationTick() + Entries.ANTI_SPAM_TICKS.value() > MC.inGameHud.getTicks()
             ) {
                 indexToRemove = i;
                 break;
@@ -129,7 +128,7 @@ public class AntiSpam {
     }
 
     public static void removeOldEntries() {
-        if (messageCounts.size() <= MAX_TRACKED_MESSAGES) {
+        if (messageCounts.size() <= Entries.ANTI_SPAM_RANGE.value()) {
             return;
         }
         Iterator<Text> keyIterator = messageCounts.keySet().iterator();

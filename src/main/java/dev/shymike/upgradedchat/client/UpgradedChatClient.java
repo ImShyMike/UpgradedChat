@@ -1,5 +1,6 @@
 package dev.shymike.upgradedchat.client;
 
+import dev.shymike.upgradedchat.client.config.Config;
 import dev.shymike.upgradedchat.client.features.Keybinds;
 import dev.shymike.upgradedchat.client.features.ReopenLastMessage;
 import net.fabricmc.api.ClientModInitializer;
@@ -17,6 +18,8 @@ public class UpgradedChatClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         LOGGER.info("Initializing {}", MOD_NAME);
+
+        Config.loadFromFile();
 
         Keybinds.registerKeybinds();
 

@@ -10,7 +10,5 @@ public class UpgradedChat implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     @Override
-    public void onInitialize() {
-        LOGGER.error("{} is not a server side mod!", MOD_NAME);
-    }
+    public void onInitialize() {}
 }

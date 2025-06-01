@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import dev.shymike.upgradedchat.client.config.Config.Entries;
 
 import static dev.shymike.upgradedchat.client.UpgradedChatClient.LAST_SERVER;
 import static dev.shymike.upgradedchat.client.UpgradedChatClient.MC;
@@ -28,7 +29,7 @@ public abstract class ChatHudMixin {
             at = @At(value = "CONSTANT", args = "intValue=100")
     )
     public int extendChatHistoryLimit(int original) {
-        return 16_384;
+        return Entries.CHAT_HISTORY_LIMIT.value();
     }
 
     @Inject(method = "clear", at = @At("HEAD"), cancellable = true)
@@ -58,6 +59,8 @@ public abstract class ChatHudMixin {
             MessageIndicator messageIndicator,
             CallbackInfo ci
     ) {
+        if (!Entries.ANTI_SPAM.value()) return;
+
         if (messageCounts.containsKey(newText)) {
             boolean stackedMessage = AntiSpam.handleRepeatedMessage(newText);
             if (stackedMessage) {

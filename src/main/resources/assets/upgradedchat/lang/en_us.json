@@ -1,4 +1,15 @@
 {
   "key.upgradedchat.open_chat": "Reopen last chat message",
-  "category.upgradedchat": "Upgraded Chat"
+  "category.upgradedchat": "Upgraded Chat",
+  "config.upgradedchat.title": "Upgraded Chat Config",
+  "config.upgradedchat.entry.anti_spam.label": "Anti Spam",
+  "config.upgradedchat.entry.anti_spam_ticks.label": "Anti Spam Ticks",
+  "config.upgradedchat.entry.anti_spam_range.label": "Anti Spam Range",
+  "config.upgradedchat.entry.chat_history_limit.label": "Chat History Limit",
+  "config.upgradedchat.entry.chat_max_characters.label": "Chat Max Characters",
+  "config.upgradedchat.entry.anti_spam.description": "Prevents chat spam by stacking messages.",
+  "config.upgradedchat.entry.anti_spam_ticks.description": "How many ticks need to have passed before a new message doesn't get stacked.",
+  "config.upgradedchat.entry.anti_spam_range.description": "How many messages need to have been sent before a new message doesn't get stacked.",
+  "config.upgradedchat.entry.chat_history_limit.description": "How many messages should the chat store (minecraft's default: 100).",
+  "config.upgradedchat.entry.chat_max_characters.description": "How many characters can fit in the chat box (only client sided, minecraft's default: 256)"
 }
