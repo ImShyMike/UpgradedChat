@@ -30,13 +30,12 @@ jobs:
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x ./gradlew
 
-      - name: Build & run tests
+      - name: Build and run tests
         run: ./gradlew clean build --no-daemon
 
-      - name: Archive JAR artifact
+      - name: Upload build JARs
         if: success()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: application-jar
-          path: |
-            build/libs/*.jar
+          name: application-jars
+          path: build/libs/*.jar
